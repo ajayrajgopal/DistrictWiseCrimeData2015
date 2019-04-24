@@ -1,0 +1,158 @@
+<html>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<style>
+		#info-box{ position: absolute; bottom: 25px; left: 10px; z-index: 99;font-weight: bold;}
+		
+	</style>
+	<title>Crimes Against Women-2015</title>
+	<body>
+		<div id="map" style="width:100%;height:100%;"></div>
+		<div id="info-box" class="card">
+			
+		</div>
+		<div id="myModal" class="modal fade" role="dialog">
+		  <div class="modal-dialog">
+
+		    <!-- Modal content-->
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal">&times;</button>
+		        <h4 class="modal-title">Modal Header</h4>
+		      </div>
+		      <div class="modal-body">
+		        <p>Some text in the modal.</p>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+
+		  </div>
+		</div>
+	</body>
+	<script type="text/javascript"
+	  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBuz7Jm7J-7myDuYs5rCcFMa3OW-VrN4JM&libraries=visualization">
+	</script>
+	<script type="text/javascript">
+		window.mobilecheck = function() {
+		  var check = false;
+		  (function(a){if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(a)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0,4))) check = true;})(navigator.userAgent||navigator.vendor||window.opera);
+		  return check;
+		};
+	var map = new google.maps.Map(document.getElementById('map'), {
+	    zoom: 6,
+	    center: {lat: 21.5937, lng: 78.9629},
+        styles: [
+			  {
+			    "featureType": "administrative.land_parcel",
+			    "elementType": "labels",
+			    "stylers": [
+			      {
+			        "visibility": "off"
+			      }
+			    ]
+			  },
+			  {
+			    "featureType": "poi",
+			    "elementType": "labels.text",
+			    "stylers": [
+			      {
+			        "visibility": "off"
+			      }
+			    ]
+			  },
+			  {
+			    "featureType": "road.local",
+			    "elementType": "labels",
+			    "stylers": [
+			      {
+			        "visibility": "off"
+			      }
+			    ]
+			  }
+			]
+		});
+
+	  // NOTE: This uses cross-domain XHR, and may not work on older browsers.
+	  map.data.setStyle(function(feature) {
+
+          var crimes = Math.exp(parseFloat(1.7));
+          if(parseFloat(feature.getProperty('Total Crimes against Women'))<100){
+          	return /** @type {google.maps.Data.StyleOptions} */({
+            icon: {
+              path: google.maps.SymbolPath.CIRCLE,
+              scale: crimes,
+              fillColor: '#2fff00',
+              fillOpacity: 1.00,
+              strokeWeight: 0
+            }
+          	});
+          }
+          else if(parseFloat(feature.getProperty('Total Crimes against Women'))<350){
+          	return /** @type {google.maps.Data.StyleOptions} */({
+            icon: {
+              path: google.maps.SymbolPath.CIRCLE,
+              scale: crimes,
+              fillColor: '#19bd00',
+              fillOpacity: 1.00,
+              strokeWeight: 0
+            }
+          	});
+          }
+          else if(parseFloat(feature.getProperty('Total Crimes against Women'))<700){
+          	return /** @type {google.maps.Data.StyleOptions} */({
+            icon: {
+              path: google.maps.SymbolPath.CIRCLE,
+              fillColor: '#ffdb00',
+              scale: crimes,
+              fillOpacity: 1.00,
+              strokeWeight: 0
+            }
+          	});
+          }
+          else if(parseFloat(feature.getProperty('Total Crimes against Women'))<2000){
+          	return /** @type {google.maps.Data.StyleOptions} */({
+            icon: {
+              path: google.maps.SymbolPath.CIRCLE,
+              scale: crimes,
+              fillColor: '#f00',
+              fillOpacity: 1.00,
+              strokeWeight: 0
+            }
+          	});
+          }
+          else {
+          	return /** @type {google.maps.Data.StyleOptions} */({
+            icon: {
+              path: google.maps.SymbolPath.CIRCLE,
+              scale: crimes,
+              fillColor: '#000',
+              fillOpacity: 1.00,
+              strokeWeight: 0
+            }
+          	});
+          }
+          
+        });
+        map.data.addListener('click', function(event) {
+        	document.getElementById("info-box").innerHTML="District: "+event.feature.getProperty('District')+"<br>Crimes: "+event.feature.getProperty('Total Crimes against Women');
+        	$('#myModal').find('.modal-body').html("<table class='table table-condensed table-hover'><tr><th>Year</th><th>"+event.feature.getProperty('Year')+"</th></tr><tr><td>Rape</td><td>"+event.feature.getProperty('Rape')+"</td></tr><tr><td>Attempt to Rape</td><td>"+event.feature.getProperty('Attempt to commit Rape')+"</td></tr><tr><td>Kidnapping & Abduction</td><td>"+event.feature.getProperty('Kidnapping & Abduction_Total')+"</td></tr><tr><td>Insult to the Modesty of Women</td><td> "+event.feature.getProperty('Insult to the Modesty of Women_Total')+"</td></tr><tr><td>Dowry Deaths</td><td>"+event.feature.getProperty('Dowry Deaths')+"</td></tr><tr><td>Assault on Women with intent to outrage her Modesty</td><td>"+event.feature.getProperty('Assault on Women with intent to outrage her Modesty_Total')+"</td></tr><tr><td>Cruelty by Husband or his Relatives</td><td>"+event.feature.getProperty('Cruelty by Husband or his Relatives')+"</td></tr><tr><td>Importation of Girls from Foreign Country</td><td>"+event.feature.getProperty('Importation of Girls from Foreign Country')+"</td></tr><tr><td>Abetment of Suicides of Women</td><td>"+event.feature.getProperty('Abetment of Suicides of Women')+"</td></tr><tr><td>Dowry Prohibition Act, 1961</td><td>"+event.feature.getProperty('Dowry Prohibition Act, 1961')+"</td></tr><tr><td>Indecent Representation of Women (P) Act, 1986</td><td>"+event.feature.getProperty('Indecent Representation of Women (P) Act, 1986')+"</td></tr><tr><td>Protection of Children from Sexual Offences Act</td><td>"+event.feature.getProperty('Protection of Children from Sexual Offences Act')+"</td></tr><tr><td>Protection of Women from Domestic Violence Act, 2005</td><td>"+event.feature.getProperty('Protection of Women from Domestic Violence Act, 2005')+"</td></tr><tr><td>Immoral Traffic Prevention Act</td><td>"+event.feature.getProperty('Immoral Traffic Prevention Act')+"</td></tr><tr><th>Total No. of Crimes</th><th>"+event.feature.getProperty('Total Crimes against Women')+"</th></tr></table>");
+        	$('#myModal').find('.modal-title').text(event.feature.getProperty('District'));
+        	$('#myModal').modal('show');
+
+        	$('#myModal').find('.modal-title').text(event.feature.getProperty('District'));
+        	$('#myModal').modal('show');
+
+        });
+        map.data.addListener('mouseover', function(event) {
+        	document.getElementById("info-box").innerHTML="District: "+event.feature.getProperty('District')+"<br>Crimes: "+event.feature.getProperty('Total Crimes against Women');
+
+        });
+
+	  map.data.loadGeoJson('https://jsonblob.com/api/jsonBlob/2b4340fd-6411-11e9-b398-e1b450b91172');
+	  
+	</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</html>
