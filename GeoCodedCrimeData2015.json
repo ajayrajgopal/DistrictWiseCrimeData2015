@@ -20422,35 +20422,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          77.1890551,
-          28.6047704
-        ]
-      },
-      "properties": {
-        "District": "Vigilance Delhi ",
-        "Year": 2015,
-        "Rape": 0,
-        "Attempt to commit Rape": 0,
-        "Kidnapping & Abduction_Total": 0,
-        "Dowry Deaths": 0,
-        "Assault on Women with intent to outrage her Modesty_Total": 0,
-        "Insult to the Modesty of Women_Total": 0,
-        "Cruelty by Husband or his Relatives": 0,
-        "Importation of Girls from Foreign Country": 0,
-        "Abetment of Suicides of Women": 0,
-        "Dowry Prohibition Act, 1961": 0,
-        "Indecent Representation of Women (P) Act, 1986": 0,
-        "Protection of Children from Sexual Offences Act": "0",
-        "Protection of Women from Domestic Violence Act, 2005": 0,
-        "Immoral Traffic Prevention Act": 0,
-        "Total Crimes against Women": 0
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           75.710031,
           16.8301708
         ]
